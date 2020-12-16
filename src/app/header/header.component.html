@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >Money Manager</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active"  ><a [routerLink]="['/income']" *ngIf="isAuthenticated">Income</a></li>
+      <li routerLinkActive="active"  ><a [routerLink]="['/expense']" *ngIf="isAuthenticated">Expense</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/receivable']" *ngIf="isAuthenticated">Receivable</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/payable']" *ngIf="isAuthenticated">Payable</a></li>
+      
+      <li class="dropdown" appDropdownDirective>
+        <a class="dropdown-toggle" data-toggle="dropdown">Reports
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a style="cursor: pointer;" [routerLink]="['/expenseReport']">Expense Report</a></li>
+          <li><a style="cursor: pointer;" [routerLink]="['/incomeReport']">Income Report</a></li>
+          <li><a style="cursor: pointer;" [routerLink]="['/receivableReport']">Receivable Report</a></li>
+          <li><a style="cursor: pointer;" [routerLink]="['/payableReport']">Payable Report</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- right aligned -->
+    <ul class="nav navbar-nav navbar-right">
+      <li routerLinkActive="active"><a [routerLink]="['/auth']" *ngIf="!isAuthenticated">Login</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/logout']" *ngIf="isAuthenticated" (click)="onLogout()">Logout</a></li>
+     
+    </ul>
+  </div>
+</nav>

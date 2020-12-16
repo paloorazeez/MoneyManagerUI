@@ -1,0 +1,7 @@
+<h3 class="text-primary">Payble Chart by expected to pay</h3><br/><br/>
+<div style="display: block" *ngIf="dataLoaded">
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"></canvas>
+</div>

@@ -1,0 +1,18 @@
+<button class="btn" (click)="refreshGrid()">Refresh</button>
+<ag-grid-angular
+    #agGrid
+    style="width: 1400px; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData | async"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+    [defaultColDef]="defaultColDef"
+    (click)="getSelectedRows()"
+    [pagination]="true"
+    [animateRows]="true"
+    [paginationPageSize]=10
+>
+</ag-grid-angular>
+<br/>
+<button class="btn btn-primary" [disabled]="!singleRowSelected" (click)="edit()">Edit</button> |
+<button class="btn btn-danger" [disabled]="noRowSelected" (click)="delete()">Delete</button>
